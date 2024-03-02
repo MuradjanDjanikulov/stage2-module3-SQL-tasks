@@ -5,8 +5,7 @@ UPDATE Subject SET grade = 5 WHERE name = 'End of Suburbia: Oil Depletion and th
 UPDATE Student SET group_num = 8 WHERE name = 'Tremaine Worvill';
 
 -- 3. Update Amount to 500 and student_id to 2 in case payment_date > 2021-01-01 and type 2
-UPDATE Payment SET amount = 500, student_id = 2
-WHERE payment_date > '2021-01-01' AND type_id = 2;
+UPDATE Payment SET amount = 500, student_id = 2 WHERE payment_date > '2021-01-01' AND type_id = 2;
 
 -- 4. Update Mark = 2 for subject_id 315
 UPDATE Mark SET mark = 2 WHERE subject_id = 315;

@@ -5,10 +5,4 @@ SELECT id, name FROM Student WHERE id IN (SELECT student_id FROM Mark GROUP BY s
 SELECT id, name FROM Student WHERE id IN (SELECT student_id FROM Mark GROUP BY student_id HAVING MIN(mark) > 7);
 
 -- 3. Select all students (id and name) who paid more than 2 times during 2019
-SELECT id, name FROM Student WHERE id IN (
-    SELECT P.student_id
-    FROM Payment P
-    WHERE EXTRACT(YEAR FROM P.payment_date) = 2019
-    GROUP BY P.student_id
-    HAVING COUNT(P.id) > 2
-    );
+SELECT id, name FROM Student WHERE id IN (SELECT P.student_id FROM Payment P WHERE EXTRACT(YEAR FROM P.payment_date) = 2019 GROUP BY P.student_id HAVING COUNT(P.id) > 2);
