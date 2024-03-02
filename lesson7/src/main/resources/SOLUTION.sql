@@ -11,4 +11,4 @@ SELECT * FROM PaymentType ORDER BY name;
 SELECT * FROM Student ORDER BY name DESC;
 
 -- 5. Select students who have at least one payment more than 1000 and filter them by birthday date ASC
-SELECT * FROM Student WHERE id IN (SELECT DISTINCT student_id FROM Payment WHERE amount > 1000) ORDER BY birthday ASC;
+SELECT s.* FROM student s INNER JOIN payment p ON s.id = p.student_id WHERE p.amount > 1000 ORDER BY s.birthday ASC;
